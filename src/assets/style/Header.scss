@@ -1,0 +1,178 @@
+@import './BtnLogin.scss';
+
+.homepage {
+    margin:3% auto;
+    width: 60%;
+    .header {
+        position: relative;
+        width:100%;
+        .header-nav {
+            background-color: $primary-color;
+            position: relative;
+            height:5em;
+            display: flex;
+            p {
+            font-size: 15px;
+            color: #ffffff;
+            margin-top: 30px;
+            margin-left: 46px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            
+            }
+           
+            .btn-signout{
+                width: 12em;
+                padding:1em;
+                border-radius: 2.5rem;
+                background-color: transparent;
+                border:1px solid $second-color;
+                font-weight: bold;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                color:#fff;
+                position: absolute;
+                margin: 2% 550px;
+                border: none;
+            }
+                .btn-signout:hover {
+                    background-color: #fff;
+                    color:$primary-color;
+                }
+        }
+    }
+    .content {
+        background-color: $background-color;
+        display: flex;
+        padding:0 2em;
+        height:80vh;
+        .taskboard-left {
+            &__profile {
+                display:flex;
+                align-items: center;
+                margin-left: 50px;
+                &__image{
+                    width:3em;
+                    height:3em;
+                    padding:1em;
+                }
+               &__edit-profile{
+                   display: inline-block;
+                   h3 {
+                       margin: 15px;
+                   }
+                   .link{
+                       font-size: 1vw;
+                       color:$third-color;
+                       text-decoration: none;
+                    }
+                    .link:hover {
+                        text-decoration: underline $primary-color;
+                    }
+               }
+            }
+            .taskboard-list{
+                padding-left: 5em;
+                padding-top:2em;
+            }
+            margin-top:1em;
+            background-color: $background-color;
+            text-align: left;
+            width:15vw;
+            ul{
+                padding:0;
+                .link {
+                    text-decoration: none;
+                    color:rgb(19, 19, 19);
+                    font-weight:lighter;
+                    padding-bottom:2em;
+                    font-size: 1.2vw;
+                }
+                .link:hover {
+                    text-decoration: underline $primary-color;
+                }
+                li {
+                    list-style: none;
+                    padding-bottom:2em;
+                    font-size: 1.2vw;
+                }
+            }
+        }
+        .contents{
+            margin-top:1em;
+            margin-left:1em;
+            box-sizing: border-box;
+            width:65%;
+            .taskbord-add {
+                    display: flex;
+                    background-color: #fff;
+                    text-align: left;
+                    align-items: center;
+                    position: relative;
+                    border-radius: 0.2em;
+                    padding:1em;
+                input{
+                    border:none;
+                    border-bottom: 2px solid $third-color;
+                    width:100%;
+                    padding:1em;
+                }
+                .add-icon{
+                    color:$second-color;
+                    width:1em;
+                    height:1em;
+                    padding:0.5em;
+                    cursor: pointer;
+                }
+            }
+            .taskboard-todo {
+                .todo-title {
+                    display: flex;
+                    justify-content:space-evenly;
+                }
+                .todo-list {
+                    display: flex;
+                    background-color: #fff;
+                    text-align: left;
+                    align-items: center;
+                    position: relative;
+                    border-radius: 0.2em;
+                    padding:0 1em;
+                    p {
+                        font-size: 1vw;
+                        padding-left:1em;
+                    }
+                   
+                    }
+                    .important {
+                        position: absolute;
+                        color:$background-color;
+                        right:35%;
+                        :hover {
+                            color:$fav-color;
+                        }
+                    }
+                    .edit {
+                        position: absolute;
+                        right:15%;
+                    }
+                    .delete {
+                        position: absolute;
+                        right:0%; 
+                        margin: 0 10px;
+                    }
+                    .btn-delete {
+
+                    }
+                    .check {
+                        position: absolute;
+                        visibility: collapse;
+                       
+                    }
+                }
+            }
+        }
+    }
+
+
