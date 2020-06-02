@@ -31,50 +31,10 @@ class SignUpPage extends React.Component {
     }
 
     handleSubmit = (e) => {
-        // e.preventDefault();
-        // let token = localStorage.getItem('token')
-
-        // // this.setState({ loading: true })
-        // axios({
-        //     method: "POST",
-        //     url: "https://titan-todoapp.herokuapp.com/api/v1/users/register",
-        //     headers: {
-        //         Authorization: token
-        //     },
-        //     data: {
-        //         name: this.state.name,
-        //         email: this.state.email,
-        //         password: this.state.password
-        //     }
-        // })
-        //     .then(res => {
-        //         console.log("res", res)
-        //         this.setState({ loading: false })
-
-        //         if (res.data.status === "Success") {
-        //             console.log("SUCCESS")
-        //             this.props.history.replace("/")
-
-        //             Swal.fire({
-        //                 icon: 'success',
-        //                 text: 'user berhasil ditambahkan!'
-        //             })
-        //             // .then(() => {
-        //             //     this.props.history.replace("/login")
-        //             // })
-        //         }
-        //     })
-        //     .catch(err => {
-        //         console.log(err.data, "EROR")
-        //         // this.setState({ loading: false })
-
-        //         Swal.fire({
-        //             icon: 'error',
-        //             text: err.response.data.message
-        //         })
-        //     })
         e.preventDefault();
-        let token = localStorage.getItem("token")
+        let token = localStorage.getItem('token')
+
+        // this.setState({ loading: true })
         axios({
             method: "POST",
             url: "https://titan-todoapp.herokuapp.com/api/v1/users/register",
@@ -88,15 +48,31 @@ class SignUpPage extends React.Component {
             }
         })
             .then(res => {
+                console.log("res", res)
+                this.setState({ loading: false })
+
                 if (res.data.status === "Success") {
                     console.log("SUCCESS")
-                    this.props.history.replace("/")
+
+
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'user berhasil ditambahkan!'
+                    })
+                        .then(() => {
+                            this.props.history.replace("/login")
+                        })
                 }
             })
             .catch(err => {
-                console.log(err.data, "ERROR")
-            })
+                console.log(err.data, "EROR")
+                // this.setState({ loading: false })
 
+                Swal.fire({
+                    icon: 'error',
+                    text: err.response.data.message
+                })
+            })
     }
     render() {
         return (
@@ -119,7 +95,7 @@ class SignUpPage extends React.Component {
                             </ul>
                             <p className="small-text">or use your email for registration</p>
                             <form>
-                                <input style={{ margin: "10px" }} type="text" id="name" value={this.state.name} onChange={this.handleOnChange} placeholder="Enter your Name"></input>
+                                <input style={{ margin: "10px" }} type="name" id="name" value={this.state.name} onChange={this.handleOnChange} placeholder="Enter your Name"></input>
                                 <input style={{ margin: "10px" }} type="email" id="email" value={this.state.email} onChange={this.handleOnChange} placeholder="Enter your Email"></input>
                                 <input style={{ margin: "10px" }} type="password" id="password" value={this.state.password} onChange={this.handleOnChange} placeholder="Enter your Password"></input>
                                 <button onClick={this.handleSubmit}>SIGN UP  </button>
