@@ -12,7 +12,7 @@
             height:5em;
             display: flex;
             p {
-            font-size: 15px;
+            font-size: 15   px;
             color: #ffffff;
             margin-top: 30px;
             margin-left: 46px;
@@ -115,14 +115,19 @@
                 input{
                     border:none;
                     border-bottom: 2px solid $third-color;
-                    width:100%;
+                    width:80%;
                     padding:1em;
                 }
-                .add-icon{
-                    color:$second-color;
-                    width:1em;
-                    height:1em;
-                    padding:0.5em;
+                .btn-add {
+                    width: 1px;
+                    color: $shadow;
+                    background-color:transparent;
+                    padding: 10px 15px;
+                    display: inline-block;
+                    position: relative;
+                    border-radius: 2rem;
+                    margin: 25px 2px 10px 2px;
+                    border: 1px solid #ffffff;
                     cursor: pointer;
                 }
             }
@@ -145,25 +150,48 @@
                     }
                    
                     }
-                    .important {
+                    .btn-important {
                         position: absolute;
                         color:$background-color;
-                        right:35%;
+                        background-color:transparent;
+                        padding: 10px 15px;
+                        display: inline-block;
+                        position: relative;
+                        border-radius: 2rem;
+                        margin: 10px 2px 10px 140px;
+                        border: 1px solid #ffffff;
+                        cursor: pointer;
+                        width: 1px;
                         :hover {
                             color:$fav-color;
                         }
                     }
-                    .edit {
+                    .btn-edit {
                         position: absolute;
-                        right:15%;
+                        width: 1px;
+                        color: black;
+                        background-color:transparent;
+                        padding: 10px 15px;
+                        display: inline-block;
+                        position: relative;
+                        border-radius: 2rem;
+                        margin: 10px 2px 10px 40px;
+                        border: 1px solid #ffffff;
+                        cursor: pointer;
                     }
-                    .delete {
-                        position: absolute;
-                        right:0%; 
-                        margin: 0 10px;
-                    }
+                
                     .btn-delete {
-
+                        position: absolute;
+                        width: 1px;
+                        color: black;
+                        background-color:transparent;
+                        padding: 0px 15px;
+                        display: inline-block;
+                        position: relative;
+                        border-radius: 2rem;
+                        margin: 10px 2px 10px 20px;
+                        border: 1px solid #ffffff;
+                        cursor: pointer;
                     }
                     .check {
                         position: absolute;
