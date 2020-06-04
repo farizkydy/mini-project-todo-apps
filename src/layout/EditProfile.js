@@ -30,14 +30,9 @@ class EditProfile extends React.Component {
                 console.log(err, "USERS")
             })
     }
-    checkToken = e => {
-        let token = localStorage.getItem("token")
-        if (!token) {
-            this.props.history.replace("/login")
-        }
-    }
-    Logout = e => {
-        e.preventDefault();
+
+    handleLogout = (e) => {
+        e.preventDefault()
         localStorage.removeItem("token");
         this.props.history.replace("/login")
     }
@@ -56,12 +51,13 @@ class EditProfile extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <form>
+                    <form >
                         <img src={this.state.picture} alt={this.state.name} style={{ height: "5em", width: "5em" }} />
-                        <label>Name</label>
-                        <input value={this.state.name}></input>
                         <label>Profile Picture</label>
-                        <input type="file" ></input>
+                        <input type="file" style={{ marginRight: "0px" }}></input>
+                        <label style={{ marginLeft: "0px" }}>Name</label>
+                        <input value={this.state.name}></input>
+
                         <button>Save</button>
                     </form>
                 </div>

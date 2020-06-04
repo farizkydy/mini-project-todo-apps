@@ -22,12 +22,12 @@ class TodoPage extends React.Component {
         console.log("getData")
         token = localStorage.getItem("token")
         try {
-            const res = await axios.get(`${baseUrl}/todos`, {
+            await axios.get(`${baseUrl}/todos`, {
                 headers: {
                     Authorization: token
                 }
             })
-            console.log(res)
+                // console.log(res)
                 .then(res => {
                     console.log(res, "This is res")
                     if (res.data.status === "Success") {
@@ -68,7 +68,7 @@ class TodoPage extends React.Component {
             })
         }
     }
-    updateImportance = async importance => {
+    updateImportance = async (id, importance) => {
         this.setState({ isLoading: true })
         const token = localStorage.getItem('token')
         const importanceTask = {
@@ -78,13 +78,14 @@ class TodoPage extends React.Component {
             importance: "false"
         }
         try {
-            const res = await axios.put(`${baseUrl}/importance`, importance ? notImportanceTask : importanceTask, {
+            await axios.put(`${baseUrl}/importance`, importance ? notImportanceTask : importanceTask, {
                 headers: {
                     Authorization: token,
-                }
+                },
             })
-            console.log(res)
-            this.props.getAll()
+
+            console.log("Your importance todo! Do it a.s.a.p")
+            this.props.getAllTodos()
             this.setState({ isLoading: false })
         }
         catch (err) {
@@ -168,6 +169,8 @@ class TodoPage extends React.Component {
                     <div className="contents">
                         <Add addTodos={this.getAllTodos} />
 
+                        <h6 style={{ fontSize: "15px", marginBottom: "10px", marginLeft: "10px" }}>You have {this.state.todos.length} Todos </h6>
+
                         <div className="taskboard-todo">
                             <div className="todo-title">
                                 <h6>Task</h6>
@@ -179,10 +182,17 @@ class TodoPage extends React.Component {
                                 return (
                                     <div key={item.id} className="todo-list">
                                         <input id="box" className="completed" type="checkbox" required />
-
-                                        <p>{item.title}</p>
+                                        <div style={{ width: "80%" }}>
+                                            <p>{item.title}</p>
+                                            <p style={{ color: "rgba(66, 66, 66, 0.377)", fontSize: "10px" }}>({item.description})</p>
+                                        </div>
                                         <p style={{ fontSize: "10px", width: "12%", marginRight: "5px", marginLeft: "13px" }}>{item.due_date}</p>
-                                        <button className="btn-important" > <FaStar /></button>
+                                        <button className="btn-important" style={
+                                            item.importance === true
+                                                ? { color: "#E17A47" }
+                                                : { bordercolor: "#6A63DD" }
+                                        }
+                                            onClick={() => this.updateImportance(item.id, item.importance)}> <FaStar /></button>
                                         <button className="btn-edit"><FaPencilAlt className="edit" /></button>
                                         <button className="btn-delete" onClick={() => { this.removeTodo(item.id) }}> <FaTrash className="delete" /></button>
 
