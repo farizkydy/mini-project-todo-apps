@@ -30,6 +30,12 @@ class EditProfile extends React.Component {
                 console.log(err, "USERS")
             })
     }
+    checkToken = e => {
+        let token = localStorage.getItem("token")
+        if (!token) {
+            this.props.history.replace("/login")
+        }
+    }
     Logout = e => {
         e.preventDefault();
         localStorage.removeItem("token");

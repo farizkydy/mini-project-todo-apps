@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Add from "./Add";
+// import Add from "./Add";
 // import ListTodo from "./ListTodo";
 import "../assets/style/Header.scss";
-import { FaPlus, FaStar, FaTrash, FaPencilAlt, FaUserNinja, FaCheckSquare } from "react-icons/fa";
+import { FaStar, FaTrash, FaUserNinja, } from "react-icons/fa";
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -101,6 +101,7 @@ class Importance extends React.Component {
                     Authorization: token
                 }
             })
+            console.log(res)
                 .then(res => {
                     console.log(res, "This is res")
                     if (res.data.status === "Success") {
@@ -168,6 +169,23 @@ class Importance extends React.Component {
 
     componentDidMount() {
         this.getAllTodos()
+        this.getUser()
+        this.checkToken()
+    }
+    checkToken = e => {
+        let token = localStorage.getItem("token")
+        if (!token) {
+            this.props.history.replace("/login")
+        }
+    }
+    Logout = e => {
+        e.preventDefault();
+        localStorage.removeItem("token");
+        this.props.history.replace("/login")
+    }
+    Home = e => {
+        e.preventDefault()
+        this.props.history.push("/")
     }
 
 

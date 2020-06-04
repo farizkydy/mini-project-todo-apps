@@ -1,7 +1,7 @@
 
 
 
-import React, { Component } from "react";
+import React from "react";
 import { FaPlus } from "react-icons/fa";
 import "../assets/style/Header.scss";
 import axios from "axios";

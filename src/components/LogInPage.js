@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/Login.scss";
-import verifyToken from "../route/verifyToken";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { Form, Input, Button, Checkbox } from 'antd';
 
 // const layout = {
 //     labelCol: { span: 8 },
@@ -18,6 +16,7 @@ class LogInPage extends React.Component {
     state = {
         email: "",
         password: ""
+
     }
 
     // componentDidMount() {
@@ -83,9 +82,9 @@ class LogInPage extends React.Component {
                         <div className="layout-form__content">
                             <h2>Sign in to Task Manager</h2>
                             <ul>
-                                <li><Link to="/"><img src={require("../assets/images/212.svg")} /></Link></li>
-                                <li> <Link to="/"><img src={require("../assets/images/g+.svg")} /></Link></li>
-                                <li> <Link to="/"><img src={require("../assets/images/li.jpg")} /></Link></li>
+                                <li><Link to="/"><img src={require("../assets/images/212.svg")} alt="socmed" /></Link></li>
+                                <li> <Link to="/"><img src={require("../assets/images/g+.svg")} alt="socmed" /></Link></li>
+                                <li> <Link to="/"><img src={require("../assets/images/li.jpg")} alt="socmed" /></Link></li>
                             </ul>
                             <p className="small-text">or use your email account</p>
                             <form>
