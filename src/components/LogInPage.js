@@ -49,6 +49,10 @@ class LogInPage extends React.Component {
                 if (res.data.status === "Success") {
                     // Simpen Token di local storage
                     localStorage.setItem('token', res.data.token)
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Selamat datang di Todo!'
+                    })
                     // Redirect user ke home
                     this.props.history.push("/")
                 } else {
