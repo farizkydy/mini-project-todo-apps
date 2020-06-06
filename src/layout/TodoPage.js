@@ -68,31 +68,32 @@ class TodoPage extends React.Component {
             })
         }
     }
-    updateImportance = async (id, importance) => {
-        this.setState({ isLoading: true })
-        const token = localStorage.getItem('token')
-        const importanceTask = {
-            importance: "true"
-        }
-        const notImportanceTask = {
-            importance: "false"
-        }
-        try {
-            await axios.put(`${baseUrl}/importance`, importance ? notImportanceTask : importanceTask, {
-                headers: {
-                    Authorization: token,
-                },
-            })
+    // updateImportance = async (id, importance) => {
+    //     this.setState({ isLoading: true })
+    //     const token = localStorage.getItem('token')
+    //     const importanceTask = {
+    //         importance: "true"
+    //     }
+    //     const notImportanceTask = {
+    //         importance: "false"
+    //     }
+    //     try {
+    //         await axios.put(`${baseUrl}/importance`, importance ? notImportanceTask : importanceTask, {
+    //             headers: {
+    //                 Authorization: token,
+    //             },
+    //         })
 
-            console.log("Your importance todo! Do it a.s.a.p")
-            this.props.getAllTodos()
-            this.setState({ isLoading: false })
-        }
-        catch (err) {
-            console.log(err)
-            this.setState({ isLoading: false })
-        }
-    }
+    //         console.log("Your importance todo! Do it a.s.a.p")
+    //         this.props.getAllTodos()
+    //         this.setState({ isLoading: false })
+    //     }
+    //     catch (err) {
+    //         console.log(err)
+    //         this.setState({ isLoading: false })
+    //     }
+    // }
+
     getUser = async () => {
         token = localStorage.getItem("token")
         try {
